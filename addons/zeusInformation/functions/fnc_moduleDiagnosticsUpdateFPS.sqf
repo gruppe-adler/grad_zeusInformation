@@ -1,40 +1,40 @@
 #include "script_component.hpp"
 
-params [["_mode","playerMode"]];
+params [["", "playerMode"]];
 
-if (missionNamespace getVariable [QGVAR(updateFPSRunning),false]) exitWith {};
+if (missionNamespace getVariable [QGVAR(updateFPSRunning), false]) exitWith {};
 GVAR(updateFPSRunning) = true;
 
 private _fnc_updateFPSplayer = {
-    params ["_args","_handle"];
+    params ["_args", "_handle"];
     if (count GVAR(usersPlayerFPS) == 0) exitWith {
         GVAR(updateFPSRunning) = false;
-        [player,QGVAR(playerFPS),nil] call CBA_fnc_setVarNet;
+        [player, QGVAR(playerFPS), nil] call CBA_fnc_setVarNet;
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
-    [player,QGVAR(playerFPS),round diag_fps] call CBA_fnc_setVarNet;
+    [player, QGVAR(playerFPS), round diag_fps] call CBA_fnc_setVarNet;
 };
 
 private _fnc_updateFPSplayerHost = {
-    params ["_args","_handle"];
+    params ["_args", "_handle"];
     if (count GVAR(usersPlayerFPS) == 0) exitWith {
         GVAR(updateFPSRunning) = false;
-        [player,QGVAR(playerFPS),nil] call CBA_fnc_setVarNet;
-        [QGVAR(serverFPS),nil] call CBA_fnc_publicVariable;
+        [player, QGVAR(playerFPS), nil] call CBA_fnc_setVarNet;
+        [QGVAR(serverFPS), nil] call CBA_fnc_publicVariable;
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
-    [player,QGVAR(playerFPS),round diag_fps] call CBA_fnc_setVarNet;
-    [QGVAR(serverFPS),round diag_fps] call CBA_fnc_publicVariable;
+    [player, QGVAR(playerFPS), round diag_fps] call CBA_fnc_setVarNet;
+    [QGVAR(serverFPS), round diag_fps] call CBA_fnc_publicVariable;
 };
 
 private _fnc_updateFPSserver = {
-    params ["_args","_handle"];
+    params ["", "_handle"];
     if (count GVAR(usersPlayerFPS) == 0) exitWith {
         GVAR(updateFPSRunning) = false;
-        [QGVAR(serverFPS),nil] call CBA_fnc_publicVariable;
+        [QGVAR(serverFPS), nil] call CBA_fnc_publicVariable;
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
-    [QGVAR(serverFPS),round diag_fps] call CBA_fnc_publicVariable;
+    [QGVAR(serverFPS), round diag_fps] call CBA_fnc_publicVariable;
 };
 
 private _fnc = switch (true) do {
@@ -43,4 +43,4 @@ private _fnc = switch (true) do {
     default {_fnc_updateFPSplayerHost};
 };
 
-[_fnc,2,[]] call CBA_fnc_addPerFrameHandler;
+[_fnc, 2, []] call CBA_fnc_addPerFrameHandler;

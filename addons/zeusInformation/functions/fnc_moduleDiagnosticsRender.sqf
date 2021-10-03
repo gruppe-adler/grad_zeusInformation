@@ -26,7 +26,7 @@ addMissionEventHandler ["Draw3D", {
     };
 
 
-    GVAR(DiagnosticsSettings) params ["_playerFPS", "_medicalStatus", "_playerFreqs", "_objectLocality", "_aiStatus", "_summaryWindow"];
+    GVAR(DiagnosticsSettings) params ["_playerFPS", "_medicalStatus", "_playerFreqs", "_objectLocality", "_aiStatus"];
     {
         private _unitTextArray = [];
 
@@ -66,7 +66,7 @@ addMissionEventHandler ["Draw3D", {
 
         // get ASL pos and convert to AGL here so text follows unit up stairs and such
         if (_unitText != "") then {
-            drawIcon3D ["",[1,1,1,0.5],ASLtoAGL getPosASL _x,1,2,0,_unitText,2,0.03,"RobotoCondensed","center"];
+            drawIcon3D ["", [1,1,1,0.5], ASLtoAGL getPosASL _x, 1, 2, 0, _unitText, 2, 0.03, "RobotoCondensed", "center"];
         };
 
     } forEach (allUnits select {_x distance2D curatorCamera < 1000});
