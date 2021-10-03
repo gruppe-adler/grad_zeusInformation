@@ -1,12 +1,10 @@
 #include "script_component.hpp"
 
-params [["", "playerMode"]];
-
 if (missionNamespace getVariable [QGVAR(updateFPSRunning), false]) exitWith {};
 GVAR(updateFPSRunning) = true;
 
 private _fnc_updateFPSplayer = {
-    params ["_args", "_handle"];
+    params ["", "_handle"];
     if (count GVAR(usersPlayerFPS) == 0) exitWith {
         GVAR(updateFPSRunning) = false;
         [player, QGVAR(playerFPS), nil] call CBA_fnc_setVarNet;
@@ -16,7 +14,7 @@ private _fnc_updateFPSplayer = {
 };
 
 private _fnc_updateFPSplayerHost = {
-    params ["_args", "_handle"];
+    params ["", "_handle"];
     if (count GVAR(usersPlayerFPS) == 0) exitWith {
         GVAR(updateFPSRunning) = false;
         [player, QGVAR(playerFPS), nil] call CBA_fnc_setVarNet;
