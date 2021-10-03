@@ -1,5 +1,5 @@
 #define MAINPREFIX x
-#define PREFIX grad_modTemplate
+#define PREFIX grad_zeusInformation
 
 #include "script_version.hpp"
 

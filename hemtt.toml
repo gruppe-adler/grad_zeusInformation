@@ -1,5 +1,5 @@
 name = "Gruppe Adler Mod Template"
-prefix = "grad_modTemplate"
+prefix = "grad_zeusInformation"
 author = "Salbei"
 files = [
     "mod.cpp",
@@ -12,7 +12,7 @@ key_name = "{{prefix}}_{{version}}"
 authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
 
 releasebuild = [
-    "@zip grad_modTemplate_{{semver.major}}.{{semver.minor}}.{{semver.patch}}.{{semver.build}}"
+    "@zip grad_zeusInformation_{{semver.major}}.{{semver.minor}}.{{semver.patch}}.{{semver.build}}"
 ]
 
 [header_exts]
