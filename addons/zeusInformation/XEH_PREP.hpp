@@ -22,12 +22,6 @@ PREP(ui_moduleDiagnosticsUpdateSummaryWindow);
 PREP(moduleMoveRespawnOnConfirm);
 PREP(ui_moduleMoveRespawn);
 
-PREP(moduleReloadLoadout);
-
-PREP(moduleSetLoadoutsOnConfirm);
-PREP(moduleSetLoadoutsReapply);
-PREP(ui_moduleSetLoadouts);
-
 PREP(moduleSupplyDrop);
 PREP(moduleSupplyDropExit);
 PREP(moduleSupplyDropSuccess);

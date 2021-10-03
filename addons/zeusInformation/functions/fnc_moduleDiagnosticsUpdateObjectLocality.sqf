@@ -4,7 +4,7 @@ if (missionNamespace getVariable [QGVAR(updateObjectLocalityRunning),false]) exi
 GVAR(updateObjectLocalityRunning) = true;
 
 [{
-    _nonPlayerGroups = allGroups select {{isPlayer _x} count (units _x) == 0};
+    private _nonPlayerGroups = allGroups select {{isPlayer _x} count (units _x) == 0};
 
     if (count GVAR(usersObjectLocality) == 0) exitWith {
         GVAR(updateObjectLocalityRunning) = false;

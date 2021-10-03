@@ -34,7 +34,7 @@ private _fnc_onConfirm = {
     private _display = ctrlparent _ctrlButtonOK;
     if (isNull _display) exitWith {};
 
-    _settings = [
+    private _settings = [
         cbChecked (_display displayCtrl 27001),
         cbChecked (_display displayCtrl 27002),
         cbChecked (_display displayCtrl 27003),

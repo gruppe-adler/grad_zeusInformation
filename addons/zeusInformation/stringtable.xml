@@ -147,46 +147,6 @@
                 <Original>Add players to Zeus</Original>
             </Key>
         </Container>
-        <Container name="moduleReloadLoadout">
-            <Key ID="STR_GRAD_ZEUS_moduleReloadLoadoutName">
-                <German>Loadout neu laden</German>
-                <Original>Reload Loadout</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleReloadLoadoutError1">
-                <German>Fehler: Einheit auswählen.</German>
-                <Original>Error: Select a unit.</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleReloadLoadoutError2">
-                <German>Fehler: GRAD-Loadout nicht installiert.</German>
-                <Original>Error: GRAD-Loadout not installed.</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleReloadLoadoutConfirm">
-                <German>%1s Loadout neu geladen.</German>
-                <Original>Loadout reloaded for %1.</Original>
-            </Key>
-        </Container>
-        <Container name="moduleSetLoadouts">
-            <Key ID="STR_GRAD_ZEUS_moduleSetLoadoutsName">
-                <German>Faktionsloadouts festlegen</German>
-                <Original>Set Faction Loadouts</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleSetLoadoutsReapply">
-                <German>Loadouts neu anwenden</German>
-                <Original>Reapply Loadouts</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleSetLoadoutsSet">
-                <German>Loadouts festgelegt</German>
-                <Original>Loadouts set</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleSetLoadoutsReapplied">
-                <German>und neu angewendet</German>
-                <Original>and reapplied</Original>
-            </Key>
-            <Key ID="STR_GRAD_ZEUS_moduleSetLoadoutsError1">
-                <German>Fehler: Keine Loadouts gefunden oder GRAD-Loadout nicht installiert.</German>
-                <Original>Error: No loadouts found or GRAD-Loadout not installed.</Original>
-            </Key>
-        </Container>
         <Container name="moduleMoveRespawn">
             <Key ID="STR_GRAD_ZEUS_moduleMoveRespawnName">
                 <German>Respawnposition verschieben</German>

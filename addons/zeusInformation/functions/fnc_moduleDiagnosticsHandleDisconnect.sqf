@@ -3,11 +3,11 @@
 params ["","",["_playerUID","XXXXXXXXXXXXXXXX"]];
 
 {
-    _arr = missionNamespace getVariable [_x,[]];
+    private _arr = missionNamespace getVariable [_x,[]];
     _arr deleteAt (_arr find _playerUID);
     publicVariable _x;
 
     nil
-} count [QGVAR(usersPlayerFPS),QGVAR(usersObjectLocality)];
+} count [QGVAR(usersPlayerFPS), QGVAR(usersObjectLocality)];
 
 false

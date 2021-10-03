@@ -8,43 +8,43 @@ addMissionEventHandler ["Draw3D", {
     if (isNull curatorCamera) exitWith {};
 
     // fix for arsenal breaking drawIcon3D
-    if (!isNull (uinamespace getvariable ["BIS_fnc_arsenal_cam",objnull])) exitWith {
+    if (!isNull (uinamespace getvariable ["BIS_fnc_arsenal_cam", objnull])) exitWith {
         GVAR(zeusInArsenal) = true;
     };
-    if (missionNamespace getVariable [QGVAR(zeusInArsenal),false]) then {
+    if (missionNamespace getVariable [QGVAR(zeusInArsenal), false]) then {
         cameraEffectEnableHUD true;
         GVAR(zeusInArsenal) = false;
     };
 
     if (isNull (getAssignedCuratorLogic player)) then {
-        GVAR(DiagnosticsSettings) = [false,false,false,false,false,false];
+        GVAR(DiagnosticsSettings) = [false, false, false, false, false, false];
     };
 
     if (({_x} count GVAR(DiagnosticsSettings)) == 0) exitWith {
-        removeMissionEventHandler ["Draw3D",_thisEventHandler];
+        removeMissionEventHandler ["Draw3D", _thisEventHandler];
         GVAR(moduleDiagnosticsRenderRunning) = false;
     };
 
 
-    GVAR(DiagnosticsSettings) params ["_playerFPS","_medicalStatus","_playerFreqs","_objectLocality","_aiStatus","_summaryWindow"];
+    GVAR(DiagnosticsSettings) params ["_playerFPS", "_medicalStatus", "_playerFreqs", "_objectLocality", "_aiStatus", "_summaryWindow"];
     {
-        _unitTextArray = [];
+        private _unitTextArray = [];
 
         if (isPlayer _x) then {
 
             if (_playerFPS) then {
-                _unitTextArray append [format ["%1 FPS",_x getVariable [QGVAR(playerFPS),0]]];
+                _unitTextArray append [format ["%1 FPS", _x getVariable [QGVAR(playerFPS), 0]]];
             };
 
             if (_medicalStatus) then {
-                _status = [_x] call FUNC(moduleDiagnosticsGetMedicalStatus);
+                private _status = [_x] call FUNC(moduleDiagnosticsGetMedicalStatus);
                 if (count _status > 0) then {
                     _unitTextArray append _status;
                 };
             };
 
             if (_playerFreqs) then {
-                _freqs = [_x] call FUNC(moduleDiagnosticsGetPlayerFreqs);
+                private _freqs = [_x] call FUNC(moduleDiagnosticsGetPlayerFreqs);
                 if (count _freqs > 0) then {
                     _unitTextArray append _freqs;
                 };
@@ -53,7 +53,7 @@ addMissionEventHandler ["Draw3D", {
         } else {
 
             if (_objectLocality && {_x == leader group _x}) then {
-                _unitTextArray append [format ["%1 %2",localize LSTRING(onOwner),(group _x) getVariable [QGVAR(ownerName),"UNKNOWN"]]];
+                _unitTextArray append [format ["%1 %2", localize LSTRING(onOwner), (group _x) getVariable [QGVAR(ownerName),"UNKNOWN"]]];
             };
 
             if (_aiStatus) then {
@@ -62,7 +62,7 @@ addMissionEventHandler ["Draw3D", {
 
         };
 
-        _unitText = _unitTextArray joinString " • ";
+        private _unitText = _unitTextArray joinString " • ";
 
         // get ASL pos and convert to AGL here so text follows unit up stairs and such
         if (_unitText != "") then {
