@@ -84,8 +84,8 @@ switch (_updatePartID) do {
     // column 3 ================================================================
     case (2): {
         private _allAI = allUnits - _allPlayers;
-        _aiGroupsNumber = {count (units _x) > 0 && {{isPlayer _x} count (units _x) == 0}} count allGroups;
-        _aiUnitsNumber = {!isPlayer _x} count _allAI;
+        private _aiGroupsNumber = {count (units _x) > 0 && {{isPlayer _x} count (units _x) == 0}} count allGroups;
+        private _aiUnitsNumber = {!isPlayer _x} count _allAI;
 
         //update AI units number
         private _textColor = switch (true) do {
